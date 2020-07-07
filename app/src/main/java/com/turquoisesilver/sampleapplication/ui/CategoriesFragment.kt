@@ -9,16 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.turquoisesilver.sampleapplication.R
 import kotlinx.android.synthetic.main.fragment_categories.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 
 private const val ARG_CATEGORY_ID = "categoryId"
 class CategoriesFragment : Fragment() {
@@ -41,7 +32,7 @@ class CategoriesFragment : Fragment() {
             val action = CategoriesFragmentDirections.actionCategoriesFragmentToProductsFragment(categoryId)
             findNavController().navigate(action)
 
-            // Bundles
+            // Bundle
             //var args = bundleOf(ARG_CATEGORY_ID to categoryId)
             //findNavController().navigate(R.id.action_categoriesFragment_to_productsFragment, args)
         }

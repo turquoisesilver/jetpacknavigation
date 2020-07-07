@@ -11,6 +11,8 @@ import com.turquoisesilver.sampleapplication.R
 import com.turquoisesilver.sampleapplication.util.downloadImage
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
+private const val ARG_PRODUCT_ITEM = "productItem"
+
 class ProductDetailFragment : Fragment() {
 
 
@@ -26,6 +28,12 @@ class ProductDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Bundle
+        /*arguments?.let {
+           var productItem = it.getSerializable(ARG_PRODUCT_ITEM) as Product
+           downloadImage(imgProductDetail, productItem?.imageUrl)*/
+
 
         var productItem = args.productItem
         txtName.text = productItem?.name

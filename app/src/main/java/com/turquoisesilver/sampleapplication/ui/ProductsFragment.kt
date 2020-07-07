@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_categories.*
 import kotlinx.android.synthetic.main.fragment_products.*
 
 
-private const val ARG_CATEGORY_ID = "categoryId"
+private const val ARG_PRODUCT_ITEM = "productItem"
 
 class ProductsFragment : Fragment() {
 
@@ -23,10 +24,13 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*arguments?.let {
+        /*
+        //Bundle
+        arguments?.let {
           var catId = it.getInt(ARG_CATEGORY_ID)
         }*/
 
+        // Safe Args
         var catId = args.categoryId
         var product = Product().apply {
             id = 1
@@ -38,6 +42,11 @@ class ProductsFragment : Fragment() {
         txtName.text = "Category Id : $catId"
         btnGotoProductDetail.setOnClickListener {
             findNavController().navigate(ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product))
+
+            // Bundle
+            //var args = bundleOf(ARG_PRODUCT_ITEM to product)
+            //findNavController().navigate(R.id.action_productsFragment_to_productDetailFragment, args)
+
         }
     }
     override fun onCreateView(
